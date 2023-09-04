@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For-Login-Form</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/6c048b98cd.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="contanier" id="contain">
+        <nav class="mainhead" id="mainHead"></nav>
+        <div class="box" id="box1"></div>
+    </div>
+    <!-- This is for a side -->
+    <div class="sideBar" id="hideDiv">
+        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo doloremque aspernatur hic quod libero placeat
+            delectus fuga provident omnis, molestias velit suscipit, non culpa aliquam sapiente, inventore temporibus
+            laboriosam fugiat?</p> -->
+    </div>
+    <div id="toastBox"></div>
+    <div class="form" id="form1">
+        <h2>Registration-form</h2>
+        <div class="profilePicture">
+            <input type="file" id="profile" name="profile" accept="image/*" onchange="getImage(event)" />
+            <label for="profile">
+                <i class="fa-solid fa-upload"></i> Choose a picture
+            </label>
+            <img src="./images/images/user.png" alt="" id="picture">
+        </div>
+        <div class="commonDiv">
+            <input type="text" placeholder="Your Full Name" id="name" />
+
+        </div>
+        <div class="commonDiv">
+            <input type="email" placeholder="Your Email id" id="email" />
+            <i class="fa fa-user fa-1x" style="position: absolute; left: 75%; "></i>
+        </div>
+        <div class="commonDiv">
+            <input type="password" placeholder="Password" id="password" />
+        </div>
+        <div class="commonDiv">
+            <input type="password" placeholder=" confirm-Password" id="Cp" />
+            <span id="passwordDiv" onclick="showPassword()">
+                <i class="fa fa-lock fa-1x" style="position: absolute; left: 75%; top: 10px;"></i>
+            </span>
+
+        </div>
+        <div class="commonDiv">
+            <input type="number" placeholder="Contact" id="Contact" max="10" min="10" />
+
+        </div>
+        <div class="commonDiv">
+            <input type="date" placeholder="DOB" id="Dob" />
+
+        </div>
+        <button id="login" onclick="loginForm()">Registration</button>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+    background-image: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pf-s80-pastel-ploy-01a_1.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=97b469027f1667a4279b223e931c0047);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* css for cntainer */
+.contanier {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+
+}
+
+.divForHead {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.mainhead {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    width: 94%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    display: none;
+}
+
+#image {
+    width: 100px;
+}
+
+.box {
+    /* background-color: black; */
+    border: 1px solid white;
+    height: 100vh;
+    margin: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 10px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    display: none;
+}
+
+
+
+/* CSS FOR FORM */
+.form {
+    background-image: url(https://c4.wallpaperflare.com/wallpaper/240/386/472/pastel-purple-blur-gradation-wallpaper-preview.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    padding: 10px;
+    padding-bottom: 70px;
+    margin: auto;
+    margin-top: 30px;
+    width: 36vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    /* display: none; */
+}
+
+.form>h2 {
+    font-weight: 100;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.commonDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    height: 5vh;
+    position: relative;
+    cursor: pointer;
+}
+
+#email,
+#password,
+#Cp,
+#Contact,
+#Dob,
+#name {
+    padding: 10px;
+    width: 60%;
+    height: 80%;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 2px solid lightblue;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+
+}
+
+#login {
+    background-color: transparent;
+    padding: 10px;
+    width: 20vw;
+    border: 2px solid lightblue;
+    outline: none;
+    font-size: 17px;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+}
+
+
+.profilePicture {
+    border: 2px solid lightblue;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 19vw;
+    height: 19%;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
+}
+
+#profile {
+    display: none;
+}
+
+#picture {
+    background-color: black;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin: 2px;
+}
+
+#showImage {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+#uploadedImage {
+    border: 1px solid black;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* CSS FOR TOAST BOX */
+.toast {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+#toastBox {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 10px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.toast>img {
+    width: 20px;
+}
+
+.Success {
+    text-align: start;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 2px solid green;
+    border-radius: 10px;
+    padding: 20px;
+
+}
+
+.Success>img {
+    width: 40px;
+}
+
+.Error {
+    background-color: red;
+    padding: 10px;
+    margin: 10px;
+    text-align: start;
+    border: 2px solid red;
+    border-radius: 10px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    transition: width 2s;
+}
+
+.Invalid {
+    background-color: yellow;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+
+/* CSS FOR SIDE BAR */
+.sideBar{
+    background-color: aquamarine;
+    width: 25%;
+    height: 96vh;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding: 10px;
+    display: none;
+}
+
+#forData{
+    background-color: black;
+    width: 25vw;
+    color: white;
+    padding: 20px;
+    font-size: 15px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
