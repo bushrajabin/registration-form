@@ -18,6 +18,8 @@ body {
     width: 100vw;
     height: 100vh;
     display: none;
+    justify-content: space-between;
+    /* background-color: aqua; */
 
 }
 
@@ -25,6 +27,8 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
 
 }
 
@@ -47,7 +51,6 @@ body {
 }
 
 .box {
-    /* background-color: black; */
     border: 1px solid white;
     height: 100vh;
     margin: 10px;
@@ -78,7 +81,6 @@ body {
     gap: 30px;
     border-radius: 10px;
     cursor: pointer;
-    /* display: none; */
 }
 
 .form>h2 {
@@ -232,8 +234,8 @@ body {
 }
 
 /* CSS FOR SIDE BAR */
-.sideBar{
-    background-color: aquamarine;
+.sideBar {
+    background-color: white;
     width: 25%;
     height: 96vh;
     position: absolute;
@@ -242,15 +244,74 @@ body {
     bottom: 0px;
     padding: 10px;
     display: none;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    /* gap: 50px; */
+
 }
 
-#forData{
-    background-color: black;
+#forData {
     width: 25vw;
-    color: white;
-    padding: 20px;
-    font-size: 15px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    color: black;
+    padding: 30px;
+    font-size: 10px;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* text-align: center; */
+    /* margin-top: 20%; */
+    letter-spacing: 2px;
 }
+
+#forData>img {
+    margin-left: 20%;
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 100%;
+   padding: 30px;
+}
+
+
+#close {
+    border: none;
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+/* CSS FOR SHOW FORM DIV */
+#nameDiv,#emailDiv,#contactDiv,#DOBDiv {
+    font-size: 20px;
+    outline: none;
+    border: none;
+    gap: 20px;
+}
+
+#camera{
+    position: absolute;
+    top: 23%;
+    left: 58%;
+    padding: 10px;
+    border-radius: 100%;
+    background-color: cadetblue;
+}
+#camera>i{
+    width: 20px;
+    height: 20px;
+}
+
+#update{
+    border: 2px solid cadetblue;
+    padding: 9px;
+    width: 20vw;
+    font-size: 20px;
+    border-radius: 20px;
+    margin: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+}
+/* 
+#userIcon:disabled{
+  width: 300px;  
+} */
