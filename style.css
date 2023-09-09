@@ -19,7 +19,6 @@ body {
     height: 100vh;
     display: none;
     justify-content: space-between;
-    /* background-color: aqua; */
 
 }
 
@@ -28,23 +27,15 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-
-}
-
-.mainhead {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     width: 94%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 10px;
     padding: 20px;
     border-radius: 10px;
-    justify-content: space-between;
-    display: flex;
-    flex-direction: row;
-    display: none;
 }
+
 
 #image {
     width: 100px;
@@ -59,9 +50,60 @@ body {
     border-radius: 10px;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     display: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* padding-top: 10%; */
+
 }
 
+.buttons {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    margin: 10px;
+}
 
+.learnMore {
+    /* width: 30vw; */
+    /* margin: 20px; */
+}
+
+.studentImage {
+    margin-top: 90px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.studentImage>img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    margin: 2px;
+}
+
+.learnMore {
+    width: 50vw;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#moreButton {
+    border: none;
+    padding: 10px;
+    width: 200px;
+    font-size: 20px;
+    border-radius: 20px;
+    border: 2px solid lightblue;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    margin-left: 30px;
+}
+
+#moreButton:hover {
+    background-color: paleturquoise;
+}
 
 /* CSS FOR FORM */
 .form {
@@ -255,10 +297,6 @@ body {
     color: black;
     padding: 30px;
     font-size: 10px;
-    /* align-items: center; */
-    /* justify-content: center; */
-    /* text-align: center; */
-    /* margin-top: 20%; */
     letter-spacing: 2px;
 }
 
@@ -268,7 +306,7 @@ body {
     height: 170px;
     object-fit: cover;
     border-radius: 100%;
-   padding: 30px;
+    padding: 30px;
 }
 
 
@@ -281,14 +319,19 @@ body {
 }
 
 /* CSS FOR SHOW FORM DIV */
-#nameDiv,#emailDiv,#contactDiv,#DOBDiv {
+#nameDiv,
+#emailDiv,
+#DOBDiv {
     font-size: 20px;
     outline: none;
     border: none;
     gap: 20px;
 }
+#contactDiv{
+    background-color: blanchedalmond;
+}
 
-#camera{
+#camera {
     position: absolute;
     top: 23%;
     left: 58%;
@@ -296,12 +339,13 @@ body {
     border-radius: 100%;
     background-color: cadetblue;
 }
-#camera>i{
+
+#camera>i {
     width: 20px;
     height: 20px;
 }
 
-#update{
+#update {
     border: 2px solid cadetblue;
     padding: 9px;
     width: 20vw;
@@ -311,7 +355,11 @@ body {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
 }
-/* 
-#userIcon:disabled{
-  width: 300px;  
-} */
+
+/* =====CSS FOR 2ND HTML PAGE=== */
+.more {
+    background-color: lightcyan;
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+}
