@@ -72,13 +72,6 @@ async function loginForm() {
                     DOB,
                     profileImage: profileImageBase64, // Use the external variable
                 };
-                // document.getElementById("contain").style.display = "flex";
-                // document.getElementById("mainHead").style.display = "flex";
-
-                // document.getElementById("box1").style.display = "flex";
-                // document.getElementById("form1").style.display = "none";
-                // creating a new object
-
                 if (!localStorage.getItem("person")) {
                     localStorage.setItem("person", JSON.stringify(payload));
 
@@ -97,9 +90,6 @@ async function loginForm() {
             }
         }
     }
-
-
-
 }
 
 window.addEventListener("load", function () {
@@ -145,7 +135,7 @@ function showToast(message, type) {
 
     setTimeout(() => {
         toast.remove();
-    }, 9000);
+    }, 1000);
 }
 // for password
 function showPassword() {
@@ -215,37 +205,42 @@ function removeDiv() {
     document.getElementById("hideDiv").style.display = "none";
 }
 
-
 function showHideDiv() {
     document.getElementById("hideDiv").style.display = "flex"
     if (JSON.parse(localStorage.getItem("person"))) {
         const userData = JSON.parse(localStorage.getItem("person"))
-        const { userEmail, userDOB, userName, userNumber } = userData
+
+        const { name, email, number, DOB, profileImage } = userData
+
         const showForm = document.getElementById("hideDiv");
         const show = document.createElement('div');
         show.id = "forData";
         show.innerHTML = `
-                    <img src= "" id="previewImage" />
+                    <img src= "${profileImage}" id="previewImage" />
                     <label for="camera">
                     <i class="fa-solid fa-camera fa-2x " id="camera"></i>
                     </label>
+
                     <input type="file"  name="profile" accept="image/*" onchange="previewNewImage(event)" id="profileUpdateImage" ><br><br>
         
-                      <p> <span style="font-size:12px;">Useremail address</span></p>
-                     <input type="email" value=${userEmail} id="emailDiv"><br><hr>
+                  
+                    
+                    <p> <span style="font-size:12px;">Useremail address</span></p>
+                    <input type="email" value=${email} id="emailDiv"><br><hr>
                     <p><span style="color:Blue;font-size:14px;">Name</span><br></p>
-                    <input type="text" value=${userName} id="nameDiv"><br><hr>
+                    <input type="text" value=${name} id="nameDiv"><br><hr>
         
                     <p><span style="color:Blue;font-size:14px;"> Emergency Contact </span> <i class="fa-solid fa-phone fa-2xs "></i></p><br>
-                    <input type="number" value=${userNumber} id="contactDiv"><br><hr>
+                    <input type="number" value=${number} id="contactDiv"><br><hr>
         
                     <span style="color:Blue;font-size:14px;"> DOB </span><br>
-                     <input type="date" value=${userDOB} id="DOBDiv">
+                     <input type="date" value=${DOB} id="DOBDiv">
                      <br>
                      <hr>
         
                     <button onclick="updateForm()" id="update">Update form</button>
-                     <button onclick="removeDiv()" id="close">X</button>
+                    <button onclick="logout()" id="delete">log-out</button>
+                    <button onclick="removeDiv()" id="close">X</button>
                     `;
 
         showForm.appendChild(show);
@@ -253,29 +248,29 @@ function showHideDiv() {
 
 }
 
-
 // // Update form
 async function updateForm() {
     // GET ALL UPDATED VALUE
-    const userName = document.getElementById("nameDiv").value;
-    const userEmail = document.getElementById("emailDiv").value;
-    const userNumber = document.getElementById("contactDiv").value;
-    const userDOB = document.getElementById("DOBDiv").value;
-    const profileImageUpdate = document.getElementById("profileUpdateImage").files[0];
+    const name = document.getElementById("nameDiv").value;
+    const email = document.getElementById("emailDiv").value;
+    const number = document.getElementById("contactDiv").value;
+    const DOB = document.getElementById("DOBDiv").value;
+    const profileImage = document.getElementById("profileUpdateImage").files[0];
 
     try {
-        const updateImageToBase64 = await fileToBase64(profileImageUpdate);
+        const updateImageToBase64 = await fileToBase64(profileImage);
         const payload = {
-            userName,
-            userEmail,
-            userNumber,
-            userDOB,
-            profileImageUpdate: updateImageToBase64
+            name,
+            email,
+            number,
+            DOB,
+            profileImage: updateImageToBase64
         }
 
         if (JSON.parse(localStorage.getItem("person"))) {
-            console.log("hii")
             localStorage.setItem("person", JSON.stringify(payload));
+            const msg = "update Successfully ";
+            showToast(msg, "success");
         } else {
             alert("data is not there");
         }
@@ -286,11 +281,19 @@ async function updateForm() {
 
 }
 
-
 // Show data in UI
 // JSON.parse(localStorage.getItem("person"));
 
 // navigate to learMorepage()
 function learnMore() {
     window.location.href = "http://127.0.0.1:5501/learnMore.html"
+}
+
+// for log out
+function logout() {
+    localStorage.removeItem("person");
+    document.getElementById("box1").style.display = "none";
+    document.getElementById("form1").style.display = "flex"
+    document.getElementById("hideDiv").style.display = "none"
+    document.getElementById("navbar").style.display = "none"
 }

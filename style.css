@@ -15,8 +15,6 @@ body {
     background-color: transparent;
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
     display: none;
     justify-content: space-between;
 
@@ -34,16 +32,18 @@ body {
     margin-top: 10px;
     padding: 20px;
     border-radius: 10px;
+    cursor: pointer;
 }
-
 
 #image {
     width: 100px;
 }
 
 .box {
+    background-image: url(https://c4.wallpaperflare.com/wallpaper/240/386/472/pastel-purple-blur-gradation-wallpaper-preview.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     border: 1px solid white;
-    height: 100vh;
     margin: 10px;
     margin-left: 2%;
     margin-right: 2%;
@@ -53,8 +53,6 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
-    /* padding-top: 10%; */
-
 }
 
 .buttons {
@@ -65,13 +63,9 @@ body {
     margin: 10px;
 }
 
-.learnMore {
-    /* width: 30vw; */
-    /* margin: 20px; */
-}
-
 .studentImage {
-    margin-top: 90px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
@@ -98,18 +92,18 @@ body {
     border-radius: 20px;
     border: 2px solid lightblue;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    margin-left: 30px;
+    margin-left: 70px;
 }
 
 #moreButton:hover {
-    background-color: paleturquoise;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 /* CSS FOR FORM */
 .form {
-    /* background-image: url(https://c4.wallpaperflare.com/wallpaper/240/386/472/pastel-purple-blur-gradation-wallpaper-preview.jpg);
+    background-image: url(https://c4.wallpaperflare.com/wallpaper/240/386/472/pastel-purple-blur-gradation-wallpaper-preview.jpg);
     background-repeat: no-repeat;
-    background-size: cover; */
+    background-size: cover;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     padding: 10px;
     padding-bottom: 70px;
@@ -120,7 +114,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 25px;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -277,38 +271,36 @@ body {
 
 /* CSS FOR SIDE BAR */
 .sideBar {
-    background-color: white;
+    background-image: url(https://c4.wallpaperflare.com/wallpaper/240/386/472/pastel-purple-blur-gradation-wallpaper-preview.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 25%;
-    height: 96vh;
+    height: 100vh;
     position: absolute;
     top: 0px;
     right: 0px;
     bottom: 0px;
-    padding: 10px;
     display: none;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
-    /* gap: 50px; */
-
 }
 
 #forData {
     width: 25vw;
     color: black;
-    padding: 30px;
+    padding: 10px;
     font-size: 10px;
     letter-spacing: 2px;
 }
 
 #forData>img {
     margin-left: 20%;
-    width: 170px;
-    height: 170px;
+    width: 140px;
+    height: 140px;
     object-fit: cover;
     border-radius: 100%;
     padding: 30px;
 }
-
 
 #close {
     border: none;
@@ -318,18 +310,21 @@ body {
     left: 10px;
 }
 
+/* ANIMATION */
+@keyframes identifier {
+    
+}
+
 /* CSS FOR SHOW FORM DIV */
 #nameDiv,
 #emailDiv,
-#DOBDiv {
+#DOBDiv,
+#contactDiv {
+    background-color: transparent;
     font-size: 20px;
     outline: none;
     border: none;
     gap: 20px;
-}
-
-#contactDiv {
-    background-color: blanchedalmond;
 }
 
 #camera {
@@ -347,6 +342,7 @@ body {
 }
 
 #update {
+    cursor: pointer;
     border: 2px solid cadetblue;
     padding: 9px;
     width: 20vw;
@@ -354,7 +350,26 @@ body {
     border-radius: 20px;
     margin: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
 
+#update:hover {
+    background-color: green;
+}
+
+#delete {
+    cursor: pointer;
+    border: 2px solid cadetblue;
+    padding: 9px;
+    width: 20vw;
+    font-size: 20px;
+    border-radius: 20px;
+    margin: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+
+#delete:hover {
+    background-color: red;
 }
 
 /* =====CSS FOR 2ND HTML PAGE=== */
@@ -365,14 +380,13 @@ body {
     text-align: center;
 }
 
+#moreButton {
+    cursor: pointer;
+}
 
 /* MEDIA QUERY */
 
 @media only screen and (max-width:700px) {
-    .body {
-        background-color: cornflowerblue;
-    }
-
     .form {
         gap: 0px;
         width: 94vw;
@@ -383,7 +397,6 @@ body {
     }
 
     .profilePicture {
-
         width: 90vw;
         height: 10vh;
     }
@@ -391,10 +404,6 @@ body {
     .commonDiv {
         width: 90vw;
         height: 80px;
-
-        /* padding: 10px; */
-
-
     }
 
     #email,
@@ -412,7 +421,6 @@ body {
 
     #login {
         width: 90vw;
-        /* margin: 10px; */
         border: none;
         padding: 20px;
     }
@@ -424,58 +432,79 @@ body {
         margin: 0px;
     }
 
+
     .box {
-        /* background-color: black; */
-        width: 100vw;
         padding: 0px;
         margin: 0px;
-        /* height: 100vh; */
-
     }
 
-    .contanier{
-        background-color: blueviolet;
+    .contanier {
+        background-color: aqua;
         height: 100vh;
-        width: 100vw;
+  
     }
 
     .buttons {
-        /* background-color: chocolate; */
+        background-color: darkviolet;
         display: flex;
         flex-direction: column;
         padding: 0px;
         margin: 0px;
-        height: 100vh;
+
     }
 
-
     .studentImage {
-        padding: 0px;
-        margin: 0px;
-
+        background-color: coral;
+        margin-top: 0px;
+        padding: 5px;
+        border: none;
     }
 
     .studentImage>img {
-        padding: 0px;
-        margin: 0px;
         object-fit: cover;
-        width: 300px;
-        height: 300px;
+        width: 350px;
     }
 
     .learnMore {
-        /* background-color: aqua; */
-        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: cornflowerblue;
+        padding: 2px;
+
     }
 
-    #moreButton{
-        /* margin-bottom: 30px; */
-   
+    .learnMore>h2 {
+        font-size: 20px;
     }
 
-    .sideBar{
-        /* background-color: blue; */
+
+
+    /* css for sidebar */
+    .sideBar {
+        background-color: rgb(77, 255, 0);
         width: 100vw;
-        height: 100vh;
+
+    }
+
+    #nameDiv,
+    #emailDiv,
+    #contactDiv,
+    #DOB {
+
+        width: 80vw;
+        padding: 10px;
+    }
+
+    hr {
+        width: 90vw;
+    }
+
+    #update{
+        background-color: blue;
+        width: 70vw;
+    }
+    #delete{
+        background-color: brown;
     }
 }
