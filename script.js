@@ -263,8 +263,6 @@ async function updateForm() {
     const userDOB = document.getElementById("DOBDiv").value;
     const profileImageUpdate = document.getElementById("profileUpdateImage").files[0];
 
-
-
     try {
         const updateImageToBase64 = await fileToBase64(profileImageUpdate);
         const payload = {

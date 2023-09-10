@@ -327,7 +327,8 @@ body {
     border: none;
     gap: 20px;
 }
-#contactDiv{
+
+#contactDiv {
     background-color: blanchedalmond;
 }
 
@@ -362,4 +363,59 @@ body {
     padding: 10px;
     font-size: 15px;
     text-align: center;
+}
+
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width:700px) {
+    .body {
+        background-color: cornflowerblue;
+    }
+
+    .form {
+        gap: 0px;
+        width: 94vw;
+        margin: 15px;
+        padding: 0px;
+        overflow: hidden;
+
+    }
+
+    .profilePicture {
+
+        width: 90vw;
+        height: 10vh;
+    }
+
+    .commonDiv {
+        width: 90vw;
+        height: 80px;
+
+        /* padding: 10px; */
+
+
+    }
+
+    #email,
+    #password,
+    #Cp,
+    #Contact,
+    #name,
+    #Dob {
+        width: 100vw;
+        outline: none;
+        border: 2px solid lightblue;
+        padding: 0px;
+        padding-left: 10px;
+    }
+
+    #login {
+        width: 90vw;
+        /* margin: 10px; */
+        border: none;
+        padding: 20px;
+    }
+
+
 }
