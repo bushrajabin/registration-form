@@ -107,9 +107,9 @@ body {
 
 /* CSS FOR FORM */
 .form {
-    background-image: url(https://c4.wallpaperflare.com/wallpaper/240/386/472/pastel-purple-blur-gradation-wallpaper-preview.jpg);
+    /* background-image: url(https://c4.wallpaperflare.com/wallpaper/240/386/472/pastel-purple-blur-gradation-wallpaper-preview.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     padding: 10px;
     padding-bottom: 70px;
@@ -417,5 +417,65 @@ body {
         padding: 20px;
     }
 
+    .divForHead {
+        background-color: azure;
+        width: 100vw;
+        padding: 0px;
+        margin: 0px;
+    }
 
+    .box {
+        /* background-color: black; */
+        width: 100vw;
+        padding: 0px;
+        margin: 0px;
+        /* height: 100vh; */
+
+    }
+
+    .contanier{
+        background-color: blueviolet;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .buttons {
+        /* background-color: chocolate; */
+        display: flex;
+        flex-direction: column;
+        padding: 0px;
+        margin: 0px;
+        height: 100vh;
+    }
+
+
+    .studentImage {
+        padding: 0px;
+        margin: 0px;
+
+    }
+
+    .studentImage>img {
+        padding: 0px;
+        margin: 0px;
+        object-fit: cover;
+        width: 300px;
+        height: 300px;
+    }
+
+    .learnMore {
+        /* background-color: aqua; */
+        width: 100vw;
+    }
+
+    #moreButton{
+        /* margin-bottom: 30px; */
+   
+    }
+
+    .sideBar{
+        /* background-color: blue; */
+        width: 100vw;
+        height: 100vh;
+    }
 }

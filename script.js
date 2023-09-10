@@ -270,7 +270,7 @@ async function updateForm() {
             userEmail,
             userNumber,
             userDOB,
-            profileImageUpdate: updateImageToBase64,
+            profileImageUpdate: updateImageToBase64
         }
 
         if (JSON.parse(localStorage.getItem("person"))) {
