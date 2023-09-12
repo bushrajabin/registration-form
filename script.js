@@ -1,239 +1,264 @@
 function createNavbar() {
+    const containerDiv = document.getElementById("contain");
+    containerDiv.style.display = "flex";
+    document.getElementById("form1").style.display = "none";
     const header = document.getElementById("navbar");
     const div = document.createElement("nav");
     div.className = "divForHead";
     div.innerHTML = `
       <img src="./images/images/logo.png" id="image"/>
-      <i class="fa-solid fa-user fa-2x" onclick="showHideDiv()" id="userIcon" ></i>`;
+      <i class="fa-solid fa-user fa-2x" onclick="showSideBar()" id="userIcon" ></i>`;
     header.appendChild(div);
-  }
-  
-  async function loginForm() {
+
+}
+
+async function loginForm() {
     // //   IN THIS LINE WE GET ALL USER INPUT
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("Cp").value;
     const number = document.getElementById("Contact").value;
-    const DOB = document.getElementById("Dob").value;
     const profileInput = document.getElementById("profile").files[0];
     // Check length=
+    const emailCheck = email.includes("@gmail.com");
     let checkNumber = number.length;
     const passCheck = password.length;
-    const emailCheck = email.includes("@gmail.com");
     //iN THIS LINE WE CHECK SOME CONDITIONS FOR EMAIL AND PASWORD
+
     if (
-      name === "" &&
-      email === "" &&
-      password === "" &&
-      number === "" &&
-      DOB === ""
+        !profileInput &&
+        name == "" &&
+        email === "" &&
+        password === "" &&
+        number == ""
+
+
     ) {
-      const msg = "Please enter all fields , it can't be empty!!";
-      showToast(msg, "error");
-    } else if (
-      name == "" ||
-      email == "" ||
-      password == "" ||
-      confirmPassword == "" ||
-      number == "" ||
-      DOB == ""
-    ) {
-      if (name == "") {
-        const msg = "Please enter yourFullName. It can't be empty!! ";
+        const msg = "Please enter all the inputs!! , they can't be empty!!";
         showToast(msg, "error");
-      } else if (email == "") {
-        if (!emailCheck) {
-          const msg = "email is not valid and also enter password";
-          showToast(msg, "invalid");
-          //
-        } else {
-          const msg = "Please enter Password. It can't be empty!! ";
-          showToast(msg, "error");
+        //
+    } else if (
+        !profileInput ||
+        name == "" ||
+        email == "" ||
+        password == ""
+
+    ) {
+        if (!profileInput) {
+            const msg = "Please select a file!! ";
+            showToast(msg, "invalid");
+        } else if (name == "") {
+            const msg = "Please enter your Full Name!! ";
+            showToast(msg, "invalid");
+        } else if (email == "") {
+            const msg = "Please enter emailid. It can't be empty!! ";
+            showToast(msg, "error");
         }
-      }
-    } else {
-      if (!emailCheck) {
+        else if (password == "") {
+            if (!emailCheck) {
+                const msg = "email is not valid and also enter password";
+                showToast(msg, "invalid");
+                //
+            } else {
+                const msg = "Please enter Password. It can't be empty!! ";
+                showToast(msg, "invalid");
+            }
+
+            // const msg = "Please enter Password. It can't be empty!! ";
+            // showToast(msg, "invalid");
+        }
+    } else if (!emailCheck) {
         if (passCheck < 8) {
-          const msg =
-            "Email is not valid and Password length must be atleast 8 characters";
-          showToast(msg, "invalid");
+            const msg =
+                "Email is not valid and Password length must be atleast 8 characters";
+            showToast(msg, "invalid");
         } else {
-          const msg = "email is not valid";
-          showToast(msg, "invalid");
+            const msg = "email is not valid";
+            showToast(msg, "invalid");
         }
-      } else if (passCheck < 8) {
-        const msg = "Password length must be atleast 8 characters";
+    } else if (passCheck < 8) {
+
+        if (!emailCheck) {
+            const msg = "email is not valid password is incorrect";
+            showToast(msg, "invalid");
+        } else {
+            const msg = "Password length must be atleast 8 characters";
+            showToast(msg, "invalid");
+        }
+    } else if (password != confirmPassword) {
+        const msg = "Password does not match!! ";
         showToast(msg, "invalid");
-      } else if (password != confirmPassword) {
-        alert("password does not match");
-      } else if (checkNumber < 10 || checkNumber > 10) {
+    } else if (checkNumber < 10 || checkNumber > 10) {
         const msg = "Invalid Contact Number!! ";
         showToast(msg, "invalid");
-      } else {
+    }
+
+    else {
         try {
-          const profileImageBase64 = await fileToBase64(profileInput);
-          var payload = {
-            name,
-            email,
-            password,
-            number,
-            DOB,
-            profileImage: profileImageBase64, // Use the external variable
-          };
-          if (!localStorage.getItem("person")) {
-            localStorage.setItem("person", JSON.stringify(payload));
-          } else {
-            alert("user alredy created");
-          }
-  
-          const containerDiv = document.getElementById("contain");
-          containerDiv.style.display = "flex";
-          createNavbar();
-          const msg = "congratulations ! succesfully logged in ";
-          showToast(msg, "success");
+            const profileImageBase64 = await fileToBase64(profileInput);
+            var payload = {
+                name,
+                email,
+                password,
+                number,
+                profileImage: profileImageBase64, // Use the external variable
+            };
+            if (!localStorage.getItem("person")) {
+                localStorage.setItem("person", JSON.stringify(payload));
+            } else {
+                alert("user alredy created");
+            }
+
+            document.getElementById("box1").style.display = "flex"
+            createNavbar();
+
+            const msg = "congratulations ! succesfully logged in ";
+            showToast(msg, "success");
+
+
         } catch (error) {
-          // if any error,
-          console.log("err haii kuch !!");
+            // if any error,
+            console.log("err haii kuch !!");
         }
-      }
     }
-  }
-  
-  window.addEventListener("load", function () {
+
+}
+
+window.addEventListener("load", function () {
     // Your code to handle the page load event here
-  
+
     if (localStorage.getItem("person")) {
-      // document.getElementById("contain").style.display = "flex";
-      document.getElementById("contain").style.display = "flex";
-  
-      // document.getElementById("box1").style.display = "flex";
-      document.getElementById("form1").style.display = "none";
-  
-      const containerDiv = document.getElementById("contain");
-      containerDiv.style.display = "flex";
-      createNavbar();
+        createNavbar();
     }
-  });
-  
-  // showToast
-  let toastBox = document.getElementById("toastBox");
-  function showToast(message, type) {
+});
+
+// showToast
+let toastBox = document.getElementById("toastBox");
+function showToast(message, type) {
     const toast = document.createElement("div");
     toast.className = "toast";
     switch (type) {
-      case "success":
-        toast.classList.add("Success");
-        toast.innerHTML = `<img src="./images/images/checkMark.png" > ${message} `;
-        break;
-      case "error":
-        toast.classList.add("Error");
-        toast.innerHTML = `<img src="./images/images/crossMark.png" > ${message}`;
-        break;
-      case "invalid":
-        toast.classList.add("Invalid");
-        toast.innerHTML = `<img src="./images/images/errorMark.png" > ${message}`;
-  
-        break;
-      default:
-        console.log("please see all toast type , may be some type issue !!");
-        break;
+        case "success":
+            toast.classList.add("Success");
+            toast.innerHTML = `<img src="./images/images/checkMark.png" > ${message} `;
+            break;
+        case "error":
+            toast.classList.add("Error");
+            toast.innerHTML = `<img src="./images/images/crossMark.png" > ${message}`;
+            break;
+        case "invalid":
+            toast.classList.add("Invalid");
+            toast.innerHTML = `<img src="./images/images/errorMark.png" > ${message}`;
+
+            break;
+        default:
+            console.log("please see all toast type , may be some type issue !!");
+            break;
     }
     toastBox.appendChild(toast);
-  
+
     setTimeout(() => {
-      toast.remove();
+        toast.remove();
     }, 1000);
-  }
-  // for password
-  function showPassword() {
+}
+// for password
+function showPassword() {
     var passField = document.getElementById("Cp");
     var showPass = document.getElementById("passwordDiv");
     if (passField.type === "password") {
-      passField.type = "text";
-      showPass.children[0].classList = "fa fa-lock-open fa-1x";
+        passField.type = "text";
+        showPass.children[0].classList = "fa fa-lock-open fa-1x";
     } else {
-      passField.type = "password";
-      showPass.children[0].classList = "fa fa-lock fa-1x";
+        passField.type = "password";
+        showPass.children[0].classList = "fa fa-lock fa-1x";
     }
-  }
-  
-  // function for generating only object URL..
-  function createObjectURL(event) {
+}
+
+// function for generating only object URL..
+function createObjectURL(event) {
     const file = event.target.files[0];
     if (file) {
-      const result = URL.createObjectURL(file);
-      return result;
+        const result = URL.createObjectURL(file);
+        return result;
     }
     previewImage(event);
-  }
-  
-  // this function  is only for preview seleted image in
-  // login form only
-  
-  function previewImage(event) {
+}
+
+// this function  is only for preview seleted image in
+// login form only
+
+function previewImage(event) {
     const newURL = createObjectURL(event);
     // console.log(newURL)
     if (newURL) {
-      document.getElementById("picture").src = newURL;
+        document.getElementById("picture").src = newURL;
     }
-  }
-  
-  // this function is only for preview new seleted image
-  // inside sidemenu only---
-  function previewNewImage(event) {
+}
+
+// this function is only for preview new seleted image
+// inside sidemenu only---
+function previewNewImage(event) {
     const newImageURL = createObjectURL(event);
     if (newImageURL) {
-      document.getElementById("previewImage").src = newImageURL;
+        document.getElementById("previewImage").src = newImageURL;
     }
-  }
-  
-  // file to base64 converter
-  
-  function fileToBase64(file) {
+}
+
+// file to base64 converter
+
+function fileToBase64(file) {
     return new Promise((resolve, reject) => {
-      if (!file) {
-        reject("No file provided");
-        return;
-      }
-  
-      const reader = new FileReader();
-  
-      reader.onload = function (e) {
-        const base64Data = e.target.result;
-        resolve(base64Data);
-      };
-  
-      reader.readAsDataURL(file);
+        if (!file) {
+            reject("No file provided");
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            const base64Data = e.target.result;
+            resolve(base64Data);
+        };
+
+        reader.readAsDataURL(file);
     });
-  }
-  
-  // REmove SideBar
-  function removeDiv() {
+}
+
+// REmove SideBar
+function removeSideBar() {
     document.getElementById("hideDiv").style.display = "none";
-  }
-  
-  function showHideDiv() {
+}
+
+function showSideBar() {
     document.getElementById("hideDiv").style.display = "flex";
-  }
-  
-  // profile data to show in sidebar...
-  // adding logged-in  user data from localstorage to sidemenu profile...
-  window.addEventListener("load", () => {
+}
+
+// profile data to show in sidebar...
+// adding logged-in  user data from localstorage to sidemenu profile...
+
+window.addEventListener("load", () => {
+    showDataInSideBar()
+});
+
+// THIS FUNCTION IS FOR GET DATA FROM LOCAL STORAGE AND SHOW IN SIDEBAR
+function showDataInSideBar() {
     const userData = JSON.parse(localStorage.getItem("person"));
-  
-    const { name, email, number, DOB, profileImage } = userData;
-  
+
+    const { name, email, number, profileImage } = userData;
+
     const showForm = document.getElementById("hideDiv");
     const show = document.createElement("div");
     show.id = "forData";
     show.innerHTML = `
                       <img src= "${profileImage}" id="previewImage" />
-                      <label for="camera">
+
+                      <label for="cameraIcon" >
+                      <input type="file" onchange="previewNewImage(event)" accept="image/*"  id="cameraIcon" >
                       <i class="fa-solid fa-camera fa-2x " id="camera"></i>
                       </label>
   
-                      <input type="file"  name="profile" accept="image/*" onchange="previewNewImage(event)" id="profileUpdateImage" ><br><br>
+                      <input type="file"  name="profile" accept="image/*" id="profileUpdateImage" ><br><br>
           
                     
                       
@@ -245,64 +270,51 @@ function createNavbar() {
                       <p><span style="color:Blue;font-size:14px;"> Emergency Contact </span> <i class="fa-solid fa-phone fa-2xs "></i></p><br>
                       <input type="number" value=${number} id="contactDiv"><br><hr>
           
-                      <span style="color:Blue;font-size:14px;"> DOB </span><br>
-                       <input type="date" value=${DOB} id="DOBDiv">
-                       <br>
-                       <hr>
-          
                       <button onclick="updateForm()" id="update">Update form</button>
                       <button onclick="logout()" id="delete">log-out</button>
-                      <button onclick="removeDiv()" id="close">X</button>
+                      <button onclick="removeSideBar()" id="close">X</button>
                       `;
-  
+
     showForm.appendChild(show);
-  });
-  
-  // // Update form
-  async function updateForm() {
+}
+// // Update form whne user click on update button
+async function updateForm() {
+
+
     // GET ALL UPDATED VALUE
     const name = document.getElementById("nameDiv").value;
     const email = document.getElementById("emailDiv").value;
     const number = document.getElementById("contactDiv").value;
-    const DOB = document.getElementById("DOBDiv").value;
-    const profileImage = document.getElementById("profileUpdateImage").files[0];
-  
+    const profileImage = document.getElementById("cameraIcon").files[0];
+
     try {
-      const updateImageToBase64 = await fileToBase64(profileImage);
-      const payload = {
-        name,
-        email,
-        number,
-        DOB,
-        profileImage: updateImageToBase64,
-      };
-  
-      if (JSON.parse(localStorage.getItem("person"))) {
-        localStorage.setItem("person", JSON.stringify(payload));
-        const msg = "update Successfully ";
-        showToast(msg, "success");
-      } else {
-        alert("data is not there");
-      }
+        const updateImageToBase64 = await fileToBase64(profileImage);
+        console.log(updateImageToBase64)
+        const payload = {
+            name,
+            email,
+            number,
+            profileImage: updateImageToBase64,
+        };
+
+
+        if (JSON.parse(localStorage.getItem("person"))) {
+            localStorage.setItem("person", JSON.stringify(payload));
+            const msg = "update Successfully ";
+            showToast(msg, "success");
+        } else {
+            alert("data is not there");
+        }
     } catch (error) {
-      console.log("something is error");
+        console.log("something is error");
     }
-  }
-  
-  // Show data in UI
-  // JSON.parse(localStorage.getItem("person"));
-  
-  // navigate to learMorepage()
-  function learnMore() {
-    window.location.href = "http://127.0.0.1:5501/learnMore.html";
-  }
-  
-  // for log out
-  function logout() {
+}
+
+// for log out the form
+function logout() {
     localStorage.removeItem("person");
     document.getElementById("box1").style.display = "none";
     document.getElementById("form1").style.display = "flex";
     document.getElementById("hideDiv").style.display = "none";
     document.getElementById("navbar").style.display = "none";
-  }
-  
+}
