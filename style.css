@@ -59,44 +59,75 @@ body {
     height: 70vh;
 }
 
+/* CSSS FOR FORM --- */
 .form2 {
-    background-color: blueviolet;
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: center;
     padding-top: 70px;
+    /* align-items: center; */
+    /* justify-content: center; */
 }
 
 .userInformation {
-    background-color: aqua;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    background-image: url(https://img.freepik.com/free-vector/gradient-grainy-texture_23-2148987745.jpg);
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 10px;
 }
 
-#Your-name,
-#Registration-number,
-#Stream,
-#department {
+#productName,
+#About-product {
     border: none;
     outline: none;
     width: 20vw;
     padding: 10px;
+    outline: none;
+    background-color: transparent;
+    border: 2px solid lightblue;
+    font-size: 20px;
 }
 
-.table {
-    background-color: antiquewhite;
-    width: 50%;
+
+.productInformation {
+    border: 2px solid lightblue;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 19vw;
+    height: 5vh;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#product-image {
+    display: none;
+}
+
+.productInformation>label {
+    width: 100%;
+    height: 100%;
+    margin-top: 15px;
+}
+
+
+.button2 {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: space-between;
 }
 
 #submit {
-    /* background-color: brown; */
-    width: 10vw;
+
+    width: 20vw;
     border: none;
-    padding: 10px;
+    padding: 5px;
     font-size: 20px;
     border-radius: 80px;
     letter-spacing: 2px;
@@ -105,10 +136,37 @@ body {
 
 #submit:hover {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-
-    /* background-color: chocolate; */
+    background-color: green;
 }
 
+/* #cancel:hover {
+    background-color: red;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+} */
+
+.show-user-added-data {
+    background-color: antiquewhite;
+    width:100%;
+    margin: 20px;
+    display: none;
+    display: flex;
+    flex-direction: row;
+   text-align: center;
+   padding-left: 50px;
+}
+.about{
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.show-user-added-data>img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+
+   
+}
 /* CSS FOR FORM */
 .form {
     background-image: url(https://c4.wallpaperflare.com/wallpaper/240/386/472/pastel-purple-blur-gradation-wallpaper-preview.jpg);
@@ -180,7 +238,7 @@ body {
 
 
 .profilePicture {
-    border: 2px solid rgb(20, 40, 47);
+    border: 2px solid lightblue;
     border-radius: 10px;
     display: flex;
     flex-direction: row;
@@ -198,7 +256,6 @@ body {
 .profilePicture>label {
     width: 100%;
     height: 100%;
-
 }
 
 #picture {

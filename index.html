@@ -14,20 +14,34 @@
     <div class="contanier" id="contain">
         <div class="box" id="box1">
 
-            <div class="form2">
+            <div class="form2" id="form-for-added-product">
                 <div class="userInformation">
+                    <div class="productInformation">
+                        <input type="file" name="product-image" id="product-image" accept="image/*"
+                            onchange="addedProductImage(event)">
+                        <label for="product-image">
+                            <i class="fa-solid fa-cloud-arrow-up"></i> Choose product-Image
+                        </label>
+                    </div>
 
-                    <input type="text" id="Your-name" placeholder="Enter your name">
-                    <input type="number" id="Registration-number" placeholder="Enter your registration number ">
-                    <input type="text" id="department" placeholder="Enter your Department">
-                    <input type="text" id="Stream" placeholder="Enter your Stream">
-                    <button onclick="submitForm()" id="submit">Submit</button>
+                    <!-- <input type="file" name="product-image" id="productImage" accept="image/*"> -->
+                    <input type="text" id="productName" placeholder="Enter Product Name ">
+                    <textarea name="" id="About-product" rows="5" cols="20"></textarea>
+                    <div class="button2">
+                        <button onclick="submitproductForm()" id="submit">Added-product</button>
+                        <!-- <button onclick="cancleproductForm()" id="cancel">Remove-product</button> -->
+                    </div>
+
                 </div>
             </div>
-            <div class="table">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, laboriosam debitis? Sit natus labore
-                optio possimus, quis, perspiciatis eligendi magnam eos rerum doloremque harum ab atque obcaecati ducimus
-                in quas.
+            <div class="show-user-added-data" id="show-data">
+                <img src="./images/images/user.png" alt="">
+                <div class="about">
+                    <h3>Product Name:Bushrs-</h3>
+                    <h3>About This Product:</h3>
+                </div>
+
+
             </div>
         </div>
     </div>
@@ -66,7 +80,7 @@
             <input type="number" placeholder="Contact" id="Contact" />
 
         </div>
-    
+
         <button id="login" onclick="loginForm()">Registration</button>
     </div>
     <script src="./script.js"></script>
